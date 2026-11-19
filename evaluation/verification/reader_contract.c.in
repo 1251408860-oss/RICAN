@@ -1,0 +1,46 @@
+/* A neutral reader over integer views of one immutable input sequence. */
+extern int __VERIFIER_nondet_int(void);
+extern void abort(void);
+
+void reach_error(void) {
+    abort();
+}
+
+static int transferred(int remaining, int budget) {
+    return remaining < budget ? remaining : budget;
+}
+
+static int sequential_boundary(int extent, int initial, int limit) {
+    int capacity = initial;
+    int offset = transferred(extent, capacity - 1);
+    while (capacity < limit && offset == capacity - 1) {
+        int grown = capacity <= limit - capacity ? 2 * capacity : limit;
+        int room = grown - offset;
+        offset += transferred(extent - offset, room - 1);
+        capacity = grown;
+    }
+    return offset;
+}
+
+int main(void) {
+    const int maximum_capacity = @CAP_LIMIT@;
+    int initial = __VERIFIER_nondet_int();
+    int limit = __VERIFIER_nondet_int();
+    int extent = __VERIFIER_nondet_int();
+
+    if (initial < 2 || initial > limit || limit > maximum_capacity ||
+        extent < limit - 1 || extent > @EXTENT_LIMIT@) {
+        return 0;
+    }
+
+    int stepwise = sequential_boundary(extent, initial, limit);
+    int summary = limit - @RESERVATION@;
+    int stepwise_unread = extent - stepwise;
+    int summary_unread = extent - summary;
+
+    if (stepwise < 0 || stepwise > extent ||
+        stepwise != summary || stepwise_unread != summary_unread) {
+        reach_error();
+    }
+    return 0;
+}

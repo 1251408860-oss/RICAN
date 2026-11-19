@@ -1,0 +1,43 @@
+{
+  "cohorts": {
+    "reader_only": {"build_strata": 8, "observations": 173808, "matches": 173808},
+    "native_parser": {"build_strata": 64, "observations": 4224, "matches": 4224},
+    "reallocation_enabled": {"build_strata": 24, "observations": 1584, "matches": 1584}
+  },
+  "fixed_growth": {
+    "pairs": 528,
+    "fixed_line_calls": 1,
+    "growing_line_calls": 3,
+    "both_entered_discard": 528,
+    "equal_discard_entry": 528,
+    "equal_first_transfer": 528,
+    "equal_projected_continuations": 528,
+    "reports": {
+      "r62": {"pairs": 264, "fixed": 20, "growing": 20, "equal_pair_outcomes": 264},
+      "r63": {"pairs": 264, "fixed": 0, "growing": 0, "equal_pair_outcomes": 264}
+    },
+    "pairs_by_shared_continuation_length": {"1": 12, "2": 20, "3": 120, "4": 120, "5": 120, "6": 116, "7": 20}
+  },
+  "toolchains": [
+    {"compiler": "Clang 16.0.6", "optimization": "O0", "trace_matches": 1056, "runs_per_release": 528, "r62_reports": 40, "r63_reports": 0},
+    {"compiler": "Clang 16.0.6", "optimization": "O1", "trace_matches": 1056, "runs_per_release": 528, "r62_reports": 40, "r63_reports": 0},
+    {"compiler": "GCC 13.3.0", "optimization": "O0", "trace_matches": 1056, "runs_per_release": 528, "r62_reports": 40, "r63_reports": 0},
+    {"compiler": "GCC 13.3.0", "optimization": "O1", "trace_matches": 1056, "runs_per_release": 528, "r62_reports": 40, "r63_reports": 0}
+  ],
+  "growth_schedules": [
+    {"policy": "G0", "line_reads": 1, "resizes": 0, "runs_per_release": 264, "r62_reports": 20, "r63_reports": 0, "matching_classifications": 528, "matching_boundary_checks": 8, "boundary_checks": 8},
+    {"policy": "G1", "line_reads": 3, "resizes": 2, "runs_per_release": 264, "r62_reports": 20, "r63_reports": 0, "matching_classifications": 528, "matching_boundary_checks": 8, "boundary_checks": 8},
+    {"policy": "G2", "line_reads": 2, "resizes": 1, "runs_per_release": 264, "r62_reports": 20, "r63_reports": 0, "matching_classifications": 528, "matching_boundary_checks": 8, "boundary_checks": 8}
+  ],
+  "release_comparison": {
+    "pairs": 2112,
+    "earlier_prefix_matches": 2112,
+    "pairs_by_additional_corrected_events": {"0": 1952, "2": 160},
+    "runs_by_continuation_length": {
+      "r62": {"1": 64, "2": 96, "3": 480, "4": 480, "5": 480, "6": 448, "7": 64},
+      "r63": {"1": 32, "2": 64, "3": 480, "4": 480, "5": 480, "6": 480, "7": 96}
+    }
+  },
+  "storage_control": {"pairs": 1056, "equal_full_reader_traces": 1056},
+  "compiler_control": {"groups": 32, "equal_trace_digests": 32}
+}

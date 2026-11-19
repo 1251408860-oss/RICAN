@@ -1,0 +1,13 @@
+configuration	test	verdict	exit_status	wall_ms
+predicateAnalysis	cap_128	TRUE	0	6127
+predicateAnalysis	cap_4096	TRUE	0	9173
+predicateAnalysis	cap_65536	TRUE	0	9436
+predicateAnalysis	cap_1048576	TRUE	0	11302
+predicateAnalysis	cap_2147483647	TRUE	0	19189
+predicateAnalysis	negative_control_128	FALSE	0	4405
+kInduction	cap_128	TRUE	0	8330
+kInduction	cap_4096	TRUE	0	17142
+kInduction	cap_65536	TRUE	0	32106
+kInduction	cap_1048576	UNKNOWN	0	36413
+kInduction	cap_2147483647	UNKNOWN	0	40581
+kInduction	negative_control_128	FALSE	0	4819
